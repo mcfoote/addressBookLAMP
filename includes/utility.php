@@ -9,5 +9,10 @@ function listAllContacts($db) {
     return $result;
 }
 
-
+function getContactById($db, $contactid) {
+    $sql = 'SELECT * FROM contact Join city
+            ON contact.cityid=city.id
+            ORDER BY contact.id';
+    $stmt=$db->prepare($sql);
+}
 ?>
