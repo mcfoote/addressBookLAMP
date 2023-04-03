@@ -20,4 +20,10 @@ function getContactById($db, $contactid) {
     $result = $stmt->fetchAll();
     return $result;
 }
+function listCities($db) {
+    $sql = 'SELECT * FROM city
+            ORDER BY id';
+    $stmt = $db->prepare($sql);
+    
+}
 ?>
