@@ -24,6 +24,9 @@ function listCities($db) {
     $sql = 'SELECT * FROM city
             ORDER BY id';
     $stmt = $db->prepare($sql);
-    
+    $stmt->execute();
+    $result=$stmt->fetchAll();
+    return $result;
 }
+
 ?>
