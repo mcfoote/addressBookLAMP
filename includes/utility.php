@@ -28,5 +28,15 @@ function listCities($db) {
     $result=$stmt->fetchAll();
     return $result;
 }
-
+function getContactByEmail($db, $emailId) {
+    $sql='SELECT * FROM contact c JOIN city t
+        ON c.cityid=t.id
+        WHERE email=:email';
+    $stmt=$db->prepare($sql);
+    $stmt->bindParam(':email',$email);
+    $email=$emailId; 
+    $stmt->execute();
+    $result=$stmt->fetchAll();
+    return $result;
+}
 ?>
