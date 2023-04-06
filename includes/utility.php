@@ -52,6 +52,14 @@ function addConant($db, $contact) {
     $stmt = $db->bindParam(':street', $street);
     $stmt = $db->bindParam(':zip_code', $zip_code);
     $stmt = $db->bindParam(':cityid', $cityid);
-
+    echo '<tr>';
+    echo "<td>$name</td>";
+    echo "<td>$firstname</td>";
+    echo "<td>$email</td>";
+    echo "<td>$street</td>";
+    echo "<td>$zip_code</td>";
+    echo "<td>$city_name</td>";
+    echo '<td><a href="editcontact.php?id='.$id.'"><button class="button">Edit</a>';
+    echo '</tr>';
 }
 ?>
