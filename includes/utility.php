@@ -52,6 +52,18 @@ function addConant($db, $contact) {
     $stmt = $db->bindParam(':street', $street);
     $stmt = $db->bindParam(':zip_code', $zip_code);
     $stmt = $db->bindParam(':cityid', $cityid);
+    $name = $contact[0];
+    $firstname = $contact[1];
+    $email = $contact[2];
+    $street = $contact[3];
+    $zip_code = $contact[4];
+    $cityid = $contact[5];
+    $result = $stmt->exectue();
+    return $result;
+
+}
+
+function tabulate() {
     echo '<tr>';
     echo "<td>$name</td>";
     echo "<td>$firstname</td>";
@@ -62,4 +74,5 @@ function addConant($db, $contact) {
     echo '<td><a href="editcontact.php?id='.$id.'"><button class="button">Edit</a>';
     echo '</tr>';
 }
+
 ?>
