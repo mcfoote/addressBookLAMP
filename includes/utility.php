@@ -1,4 +1,5 @@
 <?php
+
 function listAllContacts($db) {
     $sql = 'SELECT * FROM contact Join city
             ON contact.cityid=city.id
@@ -20,6 +21,7 @@ function getContactById($db, $contactid) {
     $result = $stmt->fetchAll();
     return $result;
 }
+
 function listCities($db) {
     $sql = 'SELECT * FROM city
             ORDER BY id';
@@ -28,15 +30,28 @@ function listCities($db) {
     $result=$stmt->fetchAll();
     return $result;
 }
+
 function getContactByEmail($db, $emailId) {
     $sql='SELECT * FROM contact c JOIN city t
         ON c.cityid=t.id
         WHERE email=:email';
     $stmt=$db->prepare($sql);
     $stmt->bindParam(':email',$email);
-    $email=$emailId; 
+    $email = $emailId; 
     $stmt->execute();
     $result=$stmt->fetchAll();
     return $result;
+}
+
+function addConant($db, $contact) {
+    $sql = 'INSERT INTO contact(name, firstname, email, street, zip_code, cityid)
+            VALUES (:name, :firstname, :email, :street, :zip_code, :cityid)';
+    $stmt = $db->bindParam(':name', $name);
+    $stmt = $db->bindParam(':firstname', $firstname);
+    $stmt = $db->bindParam(':email', $email);
+    $stmt = $db->bindParam(':street', $street);
+    $stmt = $db->bindParam(':zip_code', $zip_code);
+    $stmt = $db->bindParam(':cityid', $cityid);
+
 }
 ?>
