@@ -70,15 +70,25 @@ function footNoting() {
 }
 
 function tabulate() {
-    echo '<tr>';
-    echo "<td>$name</td>";
-    echo "<td>$firstname</td>";
-    echo "<td>$email</td>";
-    echo "<td>$street</td>";
-    echo "<td>$zip_code</td>";
-    echo "<td>$city_name</td>";
-    echo '<td><a href="editcontact.php?id='.$id.'"><button class="button">Edit</a>';
-    echo '</tr>';
+
+    for($i=0;$i<count($list);$i++) {
+        $id=$list[$i][0]; 
+        $name=$list[$i]['name']; 
+        $firstname=$list[$i]['firstname']; 
+        $email=$list[$i]['email'];
+        $street=$list[$i]['street']; 
+        $zip_code=$list[$i]['zip_code'];
+        $city_name=$list[$i]['city_name'];
+        echo '<tr>';
+        echo "<td>$name</td>";
+        echo "<td>$firstname</td>";
+        echo "<td>$email</td>";
+        echo "<td>$street</td>";
+        echo "<td>$zip_code</td>";
+        echo "<td>$city_name</td>";
+        echo '<td><a href="editcontact.php?id='.$id.'"><button class="button">Edit</a>';
+        echo '</tr>';
+    }
 }
 
 ?>
