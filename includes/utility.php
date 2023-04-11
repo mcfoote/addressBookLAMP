@@ -63,6 +63,12 @@ function addConant($db, $contact) {
 
 }
 
+function footNoting() {
+    $date=new DateTime("now");
+    $yr=$date->format('Y');
+    echo '<p>';echo "&copy$yr Benedict Daniel Masimbani"; echo '</p>';
+}
+
 function tabulate() {
     echo '<tr>';
     echo "<td>$name</td>";
